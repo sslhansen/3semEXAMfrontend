@@ -1,20 +1,14 @@
-import "./App.css";
+// import "./App.css";
 import React, {useState, useEffect} from "react";
 import DoLogin from "./login.js";
 import {
-    BrowserRouter as Router,
     Switch,
     Route,
     NavLink,
-    useParams,
     useLocation,
     useHistory
 } from "react-router-dom";
 import facade from "./apiFacade";
-import MovieSearch from "./movieSearch.js";
-import ProfilePage from "./profilePage.js";
-import AdminPage from "./adminPage.js";
-import FeaturedMovies from "./featuredMovies.js";
 import AddDog from "./addDog.js";
 import ListOfDogs from "./listOfDogs.js";
 import DogBreeds from "./dogBreeds.js";
@@ -52,24 +46,12 @@ function App() {
                         setLoggedIn={setLoggedIn}
                         goHome={goHome}/>
                 </Route>
-                <Route exact path="/movieSearch">
-                    <MovieSearch isLoggedIn={isLoggedIn}/>
-                </Route>
                 <Route exact path="/dogBreeds">
                     <DogBreeds/>
                 </Route>
                 <Route exact path="/specificDogBreeds">
                     <SpecificDogBreed/>
                 </Route>
-
-                {
-                isLoggedIn && (
-                    <Route exact path="/profilePage">
-                        <ProfilePage/>
-                    </Route>
-                )
-            }
-
                 {
                 isLoggedIn && (
                     <Route exact path="/addDog">
@@ -77,38 +59,27 @@ function App() {
                     </Route>
                 )
             }
-            {
+                {
                 isLoggedIn && (
                     <Route exact path="/listOfDogs">
                         <ListOfDogs/>
                     </Route>
                 )
             }
-
                 {
-                isAdmin && (
-                    <Route exact path="/adminPage">
-                        <AdminPage/>
-                    </Route>
-                )
-            }
-            {
                 isAdmin && (
                     <Route exact path="/calls">
                         <Calls/>
                     </Route>
                 )
             }
-            {
+                {
                 isAdmin && (
                     <Route exact path="/specificCalls">
                         <SpecificCalls/>
                     </Route>
                 )
             }
-                <Route exact path="/featuredMovies">
-                    <FeaturedMovies/>
-                </Route>
                 <Route>
                     <NoMatch/>
                 </Route>
@@ -138,22 +109,13 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
             {
             isLoggedIn && (
                 <li>
-                    <NavLink activeClassName="active" to="/profilePage">
-                        Profile Page
-                    </NavLink>
-                </li>
-            )
-        }
-            {
-            isLoggedIn && (
-                <li>
                     <NavLink activeClassName="active" to="/addDog">
                         Add dog
                     </NavLink>
                 </li>
             )
         }
-        {
+            {
             isLoggedIn && (
                 <li>
                     <NavLink activeClassName="active" to="/listOfDogs">
@@ -163,30 +125,12 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
             )
         }
             <li>
-                <NavLink activeClassName="active" to="/movieSearch">
-                    Movie Search
-                </NavLink>
-            </li>
-            <li>
-                <NavLink activeClassName="active" to="/featuredMovies">
-                    Featured Movies
-                </NavLink>
-            </li>
-            <li>
                 <NavLink activeClassName="active" to="/login">
                     {loginMsg}
                     {" "} </NavLink>
             </li>
+
             {
-            isAdmin && isLoggedIn && (
-                <li>
-                    <NavLink activeClassName="active" to="/adminPage">
-                        Admin Page
-                    </NavLink>
-                </li>
-            )
-        }
-        {
             isAdmin && isLoggedIn && (
                 <li>
                     <NavLink activeClassName="active" to="/calls">
@@ -195,7 +139,7 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
                 </li>
             )
         }
-         {
+            {
             isAdmin && isLoggedIn && (
                 <li>
                     <NavLink activeClassName="active" to="/specificCalls">
@@ -214,20 +158,20 @@ function Home() {
             <br></br>
             <ul>
                 Upon this homepage you get the possibility to search for whichever movie
-                                                                                                                        you fancy, you can see the toprated movies based on user reviews. You
-                                                                                                                        can even see some of our favorites, where we've added our
-                                                                                                                        recommendations. Furthermore upon registration of a user or logging into
-                                                                                                                        your already existing one, you can even like or dislike a movie{" "}
+                                                                                                                                                                                        you fancy, you can see the toprated movies based on user reviews. You
+                                                                                                                                                                                        can even see some of our favorites, where we've added our
+                                                                                                                                                                                        recommendations. Furthermore upon registration of a user or logging into
+                                                                                                                                                                                        your already existing one, you can even like or dislike a movie{" "}
                 <b>AND</b>
                 even adding the movies to your favorites so you will never
-                                                                                                                        forget them.
+                                                                                                                                                                                        forget them.
             </ul>
             <br></br>
             <ul>
                 But
                 <b>HEY</b>, that isn't even it! You can even download our outsourced
-                                                                                                                                                    app, mirroring some of the key features from the homepage, except now
-                                                                                                                                                    you can always have it in your pocket, with you, at all times!{" "}
+                                                                                                                                                                                                                                    app, mirroring some of the key features from the homepage, except now
+                                                                                                                                                                                                                                    you can always have it in your pocket, with you, at all times!{" "}
                 <b>WIN!</b>
             </ul>
             <br></br>

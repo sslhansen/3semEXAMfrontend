@@ -1,8 +1,8 @@
 import facade from "./apiFacade";
 import React, {useState, useEffect} from "react";
+
 export default function DogBreeds() {
     const [data, setData] = useState(null);
-
     useEffect(() => {
         setData(null);
         facade.dogBreeds().then((res) => setData(res)).catch((err) => {
@@ -15,10 +15,12 @@ export default function DogBreeds() {
     const toShow = data ? (
         <div>{
             data.map((dog) => (
-
-                <h2>{
+                <div key={
                     dog.breed
-                }</h2>
+                }>
+                    <h5>{
+                    dog.breed
+                }</h5></div>
 
             ))
         }</div>

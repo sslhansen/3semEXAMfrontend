@@ -1,5 +1,5 @@
 import facade from "./apiFacade";
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 
 export default function SpecificDogBreed() {
     const [data, setData] = useState(null);
@@ -55,7 +55,7 @@ export default function SpecificDogBreed() {
 
     return <div>
         <form>
-            <h2>Movie Search</h2>
+            <h2>Search specific breed</h2>
             <input placeholder="Breed name" id="breedName"
                 value={breedName}
                 onChange={handleChange}/>

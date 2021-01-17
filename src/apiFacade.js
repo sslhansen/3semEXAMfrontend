@@ -33,15 +33,6 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         });
     };
 
-    const registerUser = (user, password) => {
-        const options = makeOptions("POST", true, {
-            username: user,
-            password: password
-        });
-        return fetch(URL + "/api/login/createUser", options).then(handleHttpErrors).then((res) => {
-            setToken(res.token);
-        });
-    };
 
     const fetchData = () => {
         const options = makeOptions("GET", true); // True add's the token
@@ -80,15 +71,6 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         }
     };
 
-    const fetchMovieData = (title) => {
-        const options = makeOptions("GET", true); // True add's the token
-        return fetch(URL + "/api/movie/search/" + title, options).then(handleHttpErrors);
-    };
-
-    const upvote = (title) => {
-        const options = makeOptions("POST", true, {Title: title});
-        return fetch(URL + "/api/movie/rating/upvote", options).then(handleHttpErrors);
-    };
 
     const addDog = (userName, name, dateOfBirth, info, breed) => {
         const options = makeOptions("POST", true, {
@@ -127,76 +109,15 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         return fetch(URL + "/api/admin/get-calls/" + breed, options).then(handleHttpErrors);
     };
 
-    const downvote = (title) => {
-        const options = makeOptions("POST", true, {Title: title});
-        return fetch(URL + "/api/movie/rating/downvote", options).then(handleHttpErrors);
-    };
-
-    const getVotes = (title) => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/movie/rating/getrating/" + title, options).then(handleHttpErrors);
-    };
-
-    const saveMovie = (user, title) => {
-        const options = makeOptions("POST", true, {
-            username: user,
-            Title: title
-        });
-        return fetch(URL + "/api/info/user/addtosaved/", options).then(handleHttpErrors);
-    };
-    const getTopMovies = () => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/movie/top5", options).then(handleHttpErrors);
-    };
-    const getSavedList = (username) => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/info/user/getsavedlist/" + username, options).then(handleHttpErrors);
-    };
-
-    const changeUserPassword = (user, newPassword) => {
-        const options = makeOptions("POST", true, {
-            username: user,
-            password: newPassword
-        });
-        return fetch(URL + "/api/info/user/changepassword/", options).then(handleHttpErrors);
-    };
-
-    const getAllUsers = () => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/admin/allUsers/", options).then(handleHttpErrors);
-    };
-
-    const deleteUser = (username) => {
-        const options = makeOptions("POST", true);
-        return fetch(URL + "/api/admin/deleteuser/" + username, options).then(handleHttpErrors);
-    };
-
-    const getFeaturedMovies = () => {
-        const options = makeOptions("GET", true);
-        return fetch(URL + "/api/movie/extern", options).then(handleHttpErrors);
-    };
-
     return {
         makeOptions,
         setToken,
         getToken,
         loggedIn,
         login,
-        registerUser,
         logout,
         fetchData,
-        fetchMovieData,
-        upvote,
-        downvote,
-        getVotes,
-        saveMovie,
-        getTopMovies,
-        getSavedList,
-        changeUserPassword,
-        getAllUsers,
         checkRole,
-        deleteUser,
-        getFeaturedMovies,
         addDog,
         dogsByUser,
         dogBreeds,

@@ -13,21 +13,24 @@ export default function ListOfDogs() {
     }, []);
 
     const toShow = data ? (
-        <div>
-            <h1>Dine hunde:</h1>
-            {
+        <div> {
             data.map((dog) => (
-                <h2 key={
+                <div key={
                     dog.id
                 }>
-                    <h2>{
-                        "Navn:  " + dog.name + "  Fødselsdato:  " + dog.dateOfBirth + "  Info om din hund:  " + dog.info + "  Race:  " + dog.breed
-                    } </h2>
-                </h2>
+                    <h4>Name: {
+                        dog.name
+                    }</h4>
+                    {
+                    "Date of Birth:  " + dog.dateOfBirth + " Info on your dog:  " + dog.info + "  Breed:  " + dog.breed
+                } </div>
             ))
         }</div>
     ) : ("Fetching dog list...");
     return (
-        <div>{toShow}</div>
+        <div>
+            <h1>Your dogs!
+            </h1>
+            {toShow}</div>
     );
 }
