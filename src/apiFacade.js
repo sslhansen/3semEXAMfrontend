@@ -99,6 +99,19 @@ function apiFacade() {
     );
   };
 
+  const addDog = (userName, name, dateOfBirth, info, breed) => {
+    const options = makeOptions("POST", true, {
+      userName: userName,
+      name: name,
+      dateOfBirth: dateOfBirth,
+      info: info,
+      breed: breed
+    });
+    return fetch(URL + "/api/dog/add-dog/", options).then(
+      handleHttpErrors
+    );
+  };
+
   const downvote = (title) => {
     const options = makeOptions("POST", true, { Title: title });
     return fetch(URL + "/api/movie/rating/downvote", options).then(
@@ -181,6 +194,7 @@ function apiFacade() {
     checkRole,
     deleteUser,
     getFeaturedMovies,
+    addDog
   };
 }
 const facade = apiFacade();

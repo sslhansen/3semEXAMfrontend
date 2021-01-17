@@ -1,3 +1,3 @@
-const URL = "https://sebsen.dk/tomcat/3SPBackend";
+const URL = "http://localhost:8080/jpareststarter";
 
 export default URL;
