@@ -33,17 +33,18 @@ export default function AddDog() {
     function handleSubmit(event) {
         event.preventDefault();
         setData(null);
-        console.log(localStorage.getItem("username"), name, dateOfBirth, info, breed)
         facade.addDog(localStorage.getItem("username"), name, dateOfBirth, info, breed).then((res) => setData(res)).then().catch((err) => {
             if (err.status) {
                 console.log(err.message);
-                setErrorMessage(err.message);                
+                setErrorMessage(err.message);
             }
         });
     }
 
     const toShow = data ? (
-        <div>{data.msg}</div>
+        <div>{
+            data.msg
+        }</div>
     ) : ("");
 
     const errorMsg = errorMessage ? (
@@ -56,12 +57,16 @@ export default function AddDog() {
                 <h2>Movie Search</h2>
                 <input placeholder="Dog name" id="name"
                     onChange={handleNameChange}/>
-                <input placeholder="Dog date of birth" id="dateOfBirth" onChange={handleDateOfBirthChange}/>
-                <input placeholder="Dog info" id="info" onChange={handleInfoChange}/>
-                <input placeholder="Dog breed" id="breed" onChange={handleBreedChange}/>
+                <input placeholder="Dog date of birth" id="dateOfBirth"
+                    onChange={handleDateOfBirthChange}/>
+                <input placeholder="Dog info" id="info"
+                    onChange={handleInfoChange}/>
+                <input placeholder="Dog breed" id="breed"
+                    onChange={handleBreedChange}/>
                 <button onClick={handleSubmit}>Add doggie</button>
             </form>
         </div>
-        <div>{toShow}{errorMsg}</div>
+        <div>{toShow}
+            {errorMsg}</div>
     </div>
 }

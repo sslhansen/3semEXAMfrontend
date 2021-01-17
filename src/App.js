@@ -19,6 +19,7 @@ import AddDog from "./addDog.js";
 import ListOfDogs from "./listOfDogs.js";
 import DogBreeds from "./dogBreeds.js";
 import SpecificDogBreed from "./specificDogBreed.js";
+import Calls from "./calls.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -87,6 +88,13 @@ function App() {
                 isAdmin && (
                     <Route exact path="/adminPage">
                         <AdminPage/>
+                    </Route>
+                )
+            }
+            {
+                isAdmin && (
+                    <Route exact path="/calls">
+                        <Calls/>
                     </Route>
                 )
             }
@@ -166,6 +174,15 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
                 <li>
                     <NavLink activeClassName="active" to="/adminPage">
                         Admin Page
+                    </NavLink>
+                </li>
+            )
+        }
+        {
+            isAdmin && isLoggedIn && (
+                <li>
+                    <NavLink activeClassName="active" to="/calls">
+                        Check overall calls
                     </NavLink>
                 </li>
             )
