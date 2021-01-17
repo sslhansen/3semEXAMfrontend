@@ -106,6 +106,12 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         return fetch(URL + "/api/dog/get-dogs/" + username, options).then(handleHttpErrors);
     };
 
+
+    const dogBreeds = () => {
+        const options = makeOptions("GET", true); // True add's the token
+        return fetch(URL + "/api/dog/get-dogs/breeds", options).then(handleHttpErrors);
+    };
+
     const downvote = (title) => {
         const options = makeOptions("POST", true, {Title: title});
         return fetch(URL + "/api/movie/rating/downvote", options).then(handleHttpErrors);
@@ -177,7 +183,8 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         deleteUser,
         getFeaturedMovies,
         addDog,
-        dogsByUser
+        dogsByUser,
+        dogBreeds
     };
 }
 const facade = apiFacade();

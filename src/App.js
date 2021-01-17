@@ -17,6 +17,7 @@ import AdminPage from "./adminPage.js";
 import FeaturedMovies from "./featuredMovies.js";
 import AddDog from "./addDog.js";
 import ListOfDogs from "./listOfDogs.js";
+import DogBreeds from "./dogBreeds.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -50,6 +51,9 @@ function App() {
                 </Route>
                 <Route exact path="/movieSearch">
                     <MovieSearch isLoggedIn={isLoggedIn}/>
+                </Route>
+                <Route exact path="/dogBreeds">
+                    <DogBreeds/>
                 </Route>
 
 
@@ -100,6 +104,11 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
             <li>
                 <NavLink exact activeClassName="active" to="/">
                     Home
+                </NavLink>
+            </li>
+            <li>
+                <NavLink exact activeClassName="active" to="/dogBreeds">
+                    Dog breeds
                 </NavLink>
             </li>
             {
