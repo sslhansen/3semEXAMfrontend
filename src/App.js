@@ -16,6 +16,7 @@ import ProfilePage from "./profilePage.js";
 import AdminPage from "./adminPage.js";
 import FeaturedMovies from "./featuredMovies.js";
 import AddDog from "./addDog.js";
+import ListOfDogs from "./listOfDogs.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
@@ -67,6 +68,13 @@ function App() {
                     </Route>
                 )
             }
+            {
+                isLoggedIn && (
+                    <Route exact path="/listOfDogs">
+                        <ListOfDogs/>
+                    </Route>
+                )
+            }
 
                 {
                 isAdmin && (
@@ -112,6 +120,15 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
                 </li>
             )
         }
+        {
+            isLoggedIn && (
+                <li>
+                    <NavLink activeClassName="active" to="/listOfDogs">
+                        List dogs
+                    </NavLink>
+                </li>
+            )
+        }
             <li>
                 <NavLink activeClassName="active" to="/movieSearch">
                     Movie Search
@@ -146,20 +163,20 @@ function Home() {
             <br></br>
             <ul>
                 Upon this homepage you get the possibility to search for whichever movie
-                        you fancy, you can see the toprated movies based on user reviews. You
-                        can even see some of our favorites, where we've added our
-                        recommendations. Furthermore upon registration of a user or logging into
-                        your already existing one, you can even like or dislike a movie{" "}
+                                                                                                                        you fancy, you can see the toprated movies based on user reviews. You
+                                                                                                                        can even see some of our favorites, where we've added our
+                                                                                                                        recommendations. Furthermore upon registration of a user or logging into
+                                                                                                                        your already existing one, you can even like or dislike a movie{" "}
                 <b>AND</b>
                 even adding the movies to your favorites so you will never
-                        forget them.
+                                                                                                                        forget them.
             </ul>
             <br></br>
             <ul>
                 But
                 <b>HEY</b>, that isn't even it! You can even download our outsourced
-                            app, mirroring some of the key features from the homepage, except now
-                            you can always have it in your pocket, with you, at all times!{" "}
+                                                                                                                                                    app, mirroring some of the key features from the homepage, except now
+                                                                                                                                                    you can always have it in your pocket, with you, at all times!{" "}
                 <b>WIN!</b>
             </ul>
             <br></br>
