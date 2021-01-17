@@ -107,7 +107,7 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
                 </NavLink>
             </li>
             {
-            isLoggedIn && (
+            isLoggedIn && !isAdmin && (
                 <li>
                     <NavLink activeClassName="active" to="/addDog">
                         Add dog
@@ -116,7 +116,7 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
             )
         }
             {
-            isLoggedIn && (
+            isLoggedIn && !isAdmin && (
                 <li>
                     <NavLink activeClassName="active" to="/listOfDogs">
                         List dogs
@@ -154,29 +154,9 @@ function Header({isLoggedIn, loginMsg, isAdmin}) {
 function Home() {
     return (
         <div>
-            <h3>Welcome to our Movie Fetching Database</h3>
-            <br></br>
-            <ul>
-                Upon this homepage you get the possibility to search for whichever movie
-                                                                                                                                                                                        you fancy, you can see the toprated movies based on user reviews. You
-                                                                                                                                                                                        can even see some of our favorites, where we've added our
-                                                                                                                                                                                        recommendations. Furthermore upon registration of a user or logging into
-                                                                                                                                                                                        your already existing one, you can even like or dislike a movie{" "}
-                <b>AND</b>
-                even adding the movies to your favorites so you will never
-                                                                                                                                                                                        forget them.
-            </ul>
-            <br></br>
-            <ul>
-                But
-                <b>HEY</b>, that isn't even it! You can even download our outsourced
-                                                                                                                                                                                                                                    app, mirroring some of the key features from the homepage, except now
-                                                                                                                                                                                                                                    you can always have it in your pocket, with you, at all times!{" "}
-                <b>WIN!</b>
-            </ul>
-            <br></br>
-            <br></br>
-            <br></br>
+            <h1>Welcome to the dog database!</h1>
+            <div>This is the front-end of the 3rd semester exam project of Sebastian Steen Lundby Hansen.
+            </div>
         </div>
     );
 }
