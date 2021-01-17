@@ -117,9 +117,14 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         return fetch(URL + "/api/dog-breed/" + breed, options).then(handleHttpErrors);
     };
 
-    const getCalls = (breed) => {
+    const getCalls = () => {
         const options = makeOptions("GET", true); // True add's the token
         return fetch(URL + "/api/admin/get-calls", options).then(handleHttpErrors);
+    };
+
+    const getSpecificCalls = (breed) => {
+        const options = makeOptions("GET", true); // True add's the token
+        return fetch(URL + "/api/admin/get-calls/" + breed, options).then(handleHttpErrors);
     };
 
     const downvote = (title) => {
@@ -196,7 +201,8 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         dogsByUser,
         dogBreeds,
         breedInfo,
-        getCalls
+        getCalls,
+        getSpecificCalls
     };
 }
 const facade = apiFacade();
