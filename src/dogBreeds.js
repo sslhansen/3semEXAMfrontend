@@ -16,12 +16,16 @@ export default function DogBreeds() {
         <div>{
             data.map((dog) => (
 
-                <h2>{dog.breed}</h2> 
+                <h2>{
+                    dog.breed
+                }</h2>
 
             ))
         }</div>
     ) : ("Fetching dog list...");
     return (
-        <div><h1>List of different breeds:</h1> {toShow}</div>
+        <div>
+            <h1>List of different breeds:</h1>
+            {toShow}</div>
     );
 }

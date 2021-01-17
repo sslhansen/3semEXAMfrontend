@@ -112,6 +112,11 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         return fetch(URL + "/api/dog/get-dogs/breeds", options).then(handleHttpErrors);
     };
 
+    const breedInfo = (breed) => {
+        const options = makeOptions("GET", true); // True add's the token
+        return fetch(URL + "/api/dog-breed/" + breed, options).then(handleHttpErrors);
+    };
+
     const downvote = (title) => {
         const options = makeOptions("POST", true, {Title: title});
         return fetch(URL + "/api/movie/rating/downvote", options).then(handleHttpErrors);
@@ -184,7 +189,8 @@ function apiFacade() { /* Insert utility-methods from a latter step (d) here (RE
         getFeaturedMovies,
         addDog,
         dogsByUser,
-        dogBreeds
+        dogBreeds,
+        breedInfo
     };
 }
 const facade = apiFacade();
